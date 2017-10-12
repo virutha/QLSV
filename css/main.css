@@ -1,0 +1,139 @@
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+h2{
+	font-weight: bold;
+}
+body{
+   font-family: "Times New Roman", Georgia, Serif;
+}
+.table-hover tbody tr:hover{
+	background-color: pink;
+}
+/*--Nav-Menu*/
+.bgnav{
+	font-weight: bold;
+	margin-bottom:0;
+	border-bottom: 1px solid white;
+}
+.menusv{
+	padding-top: 20px;
+}
+.icon-bar{
+	background-color: black;
+}
+
+.searchsv{
+	width: 300px;
+	margin-top:-10px;
+}
+
+select[multiple], select[size] {
+    width: 100%;
+}
+.content{
+	margin-top: 60px;
+}
+#lstDanhSachXepLoaiSV{
+	margin-top: 20px;
+}
+
+/*----- Thuộc tính trong thẻ -----*/
+td{
+	text-align: center;
+	font-size: 15px;
+}
+th{
+	text-align: center;
+	background-color: #449d44;
+	color: white;
+	padding: 10px 10px;
+	font-size: 19px;
+}
+/*----- Div thông báo -----*/
+#pthongbao,#pthongbaodiem,#thongbaoMASV,#thongbaoHoTen,#thongbaoCMND,#thongbaoEmail,#thongbaoSDT,#thongbaoToan,#thongbaoLy,#thongbaoHoa,#thongbaoTimSV{
+	color: red;
+	font-weight: 16px;
+}
+/*--Footer--*/
+.bgfooter{
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-top: 20px;
+	font-size: 18px;
+}
+footer img{
+	width: 150px;
+}
+
+.footer-content{
+	text-align: center;
+}
+
+.formxoasv{
+	margin-top: 50px;
+}
+
+/*--Form animate input--*/
+.field {
+    position: relative;
+    height: 72px;
+    padding: 16px 0 8px 0;
+}
+
+.field-label {
+    position: relative;
+    margin: 0;
+    display: block;
+    color: #bfbfbf;
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    transform: translateY(24px);
+    transition: transform 0.3s, color 0.3s;
+    transform-origin: 0 50%;
+}
+
+.field-input {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 32px;
+    padding: 8px 0;
+    line-height: 16px;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.field::after,
+.field::before {
+    content: '';
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    background-color: #e6e6e6;
+}
+
+.field::after {
+    background-color: #4285f4;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.hasLabel .field-label {
+    transform: translateY(0) scale(0.75);
+}
+
+.isFocused .field-label {
+    color: #4285f4;
+}
+
+.field.isFocused::after {
+    transform: scaleX(1);
+}
