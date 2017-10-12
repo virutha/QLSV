@@ -42,6 +42,26 @@ function ThemSinhVien(){
 	{
 		KiemTraSV();
 	}
+	else if(KiemTraMaSV() == false)
+	{
+		KiemTraMaSV();
+	}
+	else if(KiemTraHoTen() == false)
+	{
+		KiemTraHoTen();
+	}
+	else if(KiemTraCMND() == false)
+	{
+		KiemTraCMND();
+	}
+	else if(KiemTraEmail() ==false)
+	{
+		KiemTraEmail();
+	}
+	else if(KiemTraSoDT() == false)
+	{
+		KiemTraSoDT();
+	}
 	//Buoc 3: Dua doi tuong sinh vien vao mang sinh vien
 	else{
 		thongbao.style.display = "none";
@@ -151,19 +171,32 @@ function ThemDiem()
 	{
 		KiemTraDiem(toan,ly,hoa);
 	}
+	else if(KiemTraToan() == false)
+	{
+		KiemTraToan();
+	}
+	else if(KiemTraLy() == false)
+	{
+		KiemTraLy();
+	}
+	else if(KiemTraHoa() == false)
+	{
+		KiemTraHoa();
+	}
 	else{
 		var DTB = (toan+ly+hoa)/3;
 		var dtb= DTB.toFixed(2);
 		var lstBoxSV = document.getElementById('lstDanhSachSinhVien2');
 		var lstSVDC = lstBoxSV.options;
 		var slSVDC = lstBoxSV.options.length;
-		thongbaodiem.style.display = "none";
 		for( var i = 0;i<slSVDC;i++)
 		{
 			if(lstSVDC[i].selected)
 			{
 				dsSinhVien.DSSV[i].DTB = dtb;
-
+				thongbaodiem.innerHTML = "Thêm thành công";
+				thongbaodiem.style.cssText = "color:green";
+				thongbaodiem.classList.add('animated','fadeInRight');
 			}
 		}
 		for(i = 0; i < dsSinhVien.DSSV.length ; i++ )
@@ -348,7 +381,15 @@ function KiemTraHoTen()
 	var kq = true;
 	var hoten = document.getElementById('hoten').value;
 	var thongbao = document.getElementById("thongbaoHoTen");
-	if(kiemTraRong(hoten))
+	var svCanTim = dsSinhVien.TimSV(hoten);
+	if(svCanTim.length != 0)
+	{
+		thongbao.innerHTML = "Họ và tên sinh viên không được trùng nhau";
+		thongbao.classList.add('animated','fadeInRight')
+		thongbao.style.display = "block";
+		kq = false;		
+	}
+	else if(kiemTraRong(hoten))
 	{
 		thongbao.innerHTML = "Họ Tên không được để trống";
 		thongbao.style.display = "block";
@@ -593,6 +634,7 @@ function rsThemSV(){
 
 function rsThemDiem(){
 	document.getElementById('themdiem').reset();
+	document.getElementById("pthongbaodiem").innerHTML = "";
 	document.getElementById("thongbaoToan").innerHTML = "";
 	document.getElementById("thongbaoLy").innerHTML = "";
 	document.getElementById("thongbaoHoa").innerHTML = "";
